@@ -24,29 +24,13 @@ def DisplayForm():
     display_screen.title("Student Management System")
     global tree
     global SEARCH
-    
-     global name
-    
-     global contact
-    
-     global email
-    
-     global rollno
-    
-     global branch
-    
+    zg-for(((zg-item:::[[[zg-entities]]]))){{{
+     global [[[zg-item...zg-name]]]
+    }}}
     SEARCH = StringVar()
-    
-     name = StringVar()
-    
-     contact = StringVar()
-    
-     email = StringVar()
-    
-     rollno = StringVar()
-    
-     branch = StringVar()
-    
+    zg-for(((zg-item:::[[[zg-entities]]]))){{{
+     [[[zg-item...zg-name]]] = StringVar()
+    }}}
     #creating frames for layout
     #topview frame for heading
     TopViewForm = Frame(display_screen, width=600, bd=1, relief=SOLID)
@@ -64,22 +48,10 @@ def DisplayForm():
     lbl_text = Label(TopViewForm, text="Student Management System", font=('verdana', 18), width=600,bg="#1C2833",fg="white")
     lbl_text.pack(fill=X)
     #creating registration form in first left frame
-    
-         Label(LFrom, text="Name", font=("Arial", 12)).pack(side=TOP)
-    Entry(LFrom,font=("Arial",10,"bold"),textvariable=name).pack(side=TOP, padx=10, fill=X)
-    
-         Label(LFrom, text="Contact", font=("Arial", 12)).pack(side=TOP)
-    Entry(LFrom,font=("Arial",10,"bold"),textvariable=contact).pack(side=TOP, padx=10, fill=X)
-    
-         Label(LFrom, text="Email", font=("Arial", 12)).pack(side=TOP)
-    Entry(LFrom,font=("Arial",10,"bold"),textvariable=email).pack(side=TOP, padx=10, fill=X)
-    
-         Label(LFrom, text="Rollno", font=("Arial", 12)).pack(side=TOP)
-    Entry(LFrom,font=("Arial",10,"bold"),textvariable=rollno).pack(side=TOP, padx=10, fill=X)
-    
-         Label(LFrom, text="Branch", font=("Arial", 12)).pack(side=TOP)
-    Entry(LFrom,font=("Arial",10,"bold"),textvariable=branch).pack(side=TOP, padx=10, fill=X)
-    
+    zg-for(((zg-item:::[[[zg-entities]]]))){{{
+         Label(LFrom, text="zg-upperFirstCase(((zg-item...zg-name)))", font=("Arial", 12)).pack(side=TOP)
+    Entry(LFrom,font=("Arial",10,"bold"),textvariable=[[[zg-item...zg-name]]]).pack(side=TOP, padx=10, fill=X)
+    }}}
     Button(LFrom,text="Submit",font=("Arial", 10, "bold"),command=register).pack(side=TOP, padx=10,pady=5, fill=X)
 
     #creating search label and entry in second frame
@@ -111,17 +83,9 @@ def DisplayForm():
     scrollbarx.pack(side=BOTTOM, fill=X)
     #setting headings for the columns
     tree.heading('Student Id', text="Student Id", anchor=W)
-     
-      tree.heading('Name', text="Name", anchor=W)
-    
-      tree.heading('Contact', text="Contact", anchor=W)
-    
-      tree.heading('Email', text="Email", anchor=W)
-    
-      tree.heading('Rollno', text="Rollno", anchor=W)
-    
-      tree.heading('Branch', text="Branch", anchor=W)
-    
+     zg-for(((zg-item:::[[[zg-entities]]]))){{{
+      tree.heading('zg-upperFirstCase(((zg-item...zg-name)))', text="zg-upperFirstCase(((zg-item...zg-name)))", anchor=W)
+    }}}
    
     #setting width of the columns
     tree.column('#0', stretch=NO, minwidth=0, width=0)
@@ -142,7 +106,7 @@ def register():
     branch1=branch.get()
     #applying empty validation
     if name1=='' or con1==''or email1=='' or rol1==''or branch1=='':
-        tkMessageBox.showinfo("Warning","fill the empty field)
+        tkMessageBox.showinfo("Warning","fill the empty field!!!")
     else:
         #execute query
         conn.execute('INSERT INTO STUD_REGISTRATION (STU_NAME,STU_CONTACT,STU_EMAIL,STU_ROLLNO,STU_BRANCH) \
@@ -160,17 +124,9 @@ def Reset():
     DisplayData()
     #clear search text
     SEARCH.set("")
-    
-      name.set("")
-    
-      contact.set("")
-    
-      email.set("")
-    
-      rollno.set("")
-    
-      branch.set("")
-    
+    zg-for(((zg-item:::[[[zg-entities]]]))){{{
+      [[[zg-item...zg-name]]].set("")
+    }}}
 def Delete():
     #open database
     Database()
