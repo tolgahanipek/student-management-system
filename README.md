@@ -1,3 +1,6 @@
+# Code Generation
+
+Zontroy Code Generator is used to add code generation templates to the project. The main.py file was updated by automatically generating the code with the main.py.zif file. main.py, main.py.zsif and student management system.zproject plugins have been added.
 # Student management system Project in Python with SQLite Database
 
 **Step 1: Install Python** 
